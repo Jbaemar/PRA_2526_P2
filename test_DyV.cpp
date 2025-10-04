@@ -46,8 +46,13 @@ int main(){
 	
 	cout << "Introduce el valor a buscar: ";
 	cin >> valor;
-
-	cout << "El valor a buscar se encuentra en la posición: " << Busqueda(valor,vec,0,tam-1)+1 << endl;
+ 
+	int pos = Busqueda(valor,vec,0,tam-1);
+	if(pos = -1){
+		cout << "El valor introducido no se encuentra en el vector \n";
+	}else{
+		cout << "El valor a buscar se encuentra en la posición: " << pos + 1 << endl;
+	}
 	}
 
 	return 0;
