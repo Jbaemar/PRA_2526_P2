@@ -4,20 +4,20 @@
 using namespace std;
 
 int BusquedaInv(int x, vector<int>& vec, int ini, int fin){
-	if(ini < fin){
+	if(ini > fin){
 		return -1;
 	}
 	
 	int medio = (ini + fin)/2;
 	if(vec[medio] == x){
 		return medio;
-	}else if(vec[medio] > x){
-		return BusquedaInv(x, vec, medio+1, fin);
 	}else if(vec[medio] < x){
+		// Si el medio es menor que x, en orden descendente x está a la IZQUIERDA
 		return BusquedaInv(x, vec, ini, medio-1);
+	}else{ // vec[medio] > x
+		// Si el medio es mayor que x, en orden descendente x está a la DERECHA
+		return BusquedaInv(x, vec, medio+1, fin);
 	}
-	return -1;
-
 }
 
 

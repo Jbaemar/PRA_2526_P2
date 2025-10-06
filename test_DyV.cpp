@@ -63,7 +63,7 @@ int main(){
 	}else{
 		pos = BusquedaInv(valor,vec,0,tam-1);
 	}
-	if(pos = -1){
+	if(pos == -1){
 		cout << "El valor introducido no se encuentra en el vector \n";
 	}else{
 		cout << "El valor a buscar se encuentra en la posición: " << pos + 1 << endl;
