@@ -1,5 +1,7 @@
 #include "DyV.h"
+#include "qs.h"
 #include <bits/stdc++.h>
+#include <chrono>
 using namespace std;
 
 int main(){
@@ -12,13 +14,27 @@ int main(){
 	cout << "Introduce el tamaño del vector a ordenar: ";
 	cin >> tam;
 	vector<int> vec(tam);
+	vector<int> vec2(tam);
 
 	cout << "Ahora introduce los valores a ordenar: ";
 	for(int i = 0; i < tam; i++){
 		cin >> vec[i];
 	}
-	qs(vec, 0, tam-1);
-	
+	vec2 = vec;
+	auto start = std::chrono::system_clock::now();
+	qsFin(vec, 0, tam-1);
+	auto end = std::chrono::system_clock::now();
+
+	std::chrono::duration<double> elapsed_seconds = end-start;
+	std::cout << "Tiempo transcurrido con último elemento como pivote: " << elapsed_seconds.count() << "s\n";
+
+	start = std::chrono::system_clock::now();
+	qsMedio(vec2, 0, tam-1);
+	end = std::chrono::system_clock::now();
+
+	elapsed_seconds = end-start;
+	std::cout << "Tiempo transcurrido con elemento del medio como pivote: " << elapsed_seconds.count() << "s\n";
+
 	cout << "El vector ordenado es: ";
 	for(int i = 0; i < tam; i++){
 		cout << vec[i] << " ";
